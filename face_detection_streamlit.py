@@ -1,9 +1,5 @@
 import streamlit as st
-import argparse
-import imutils
-import time
 import cv2
-import os
 
 st.title("Face Detection")
 
@@ -26,7 +22,6 @@ frameST = st.empty()
 while True:
     ret, frame = cap.read()
     orig = frame.copy()
-    frame = imutils.resize(frame, width=400)
 
     # detect faces in the grayscale frame
     rects = detector.detectMultiScale(
@@ -39,5 +34,7 @@ while True:
 
     # show the output frame
     frameST.image(frame, channels="BGR")
+    
+        
     
         
